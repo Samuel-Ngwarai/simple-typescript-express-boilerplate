@@ -40,8 +40,8 @@ export class Server {
     this.server.use(cors());
   }
 
-  public addRoutes(routes: IRoute, vehicleGeolocationController: SomeController): void {
-    routes.register(this.server, vehicleGeolocationController);
+  public addRoutes(routes: IRoute, someController: SomeController): void {
+    routes.register(this.server, someController);
   }
 
   public addErrorHandler() {

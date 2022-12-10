@@ -18,11 +18,11 @@ export default class App {
 
     const routes = new Routes();
 
-    const vehicleGeolocationController = new SomeController();
+    const someController = new SomeController();
 
     this.server.addExtensions();
     this.server.addSwaggerFile();
-    this.server.addRoutes(routes, vehicleGeolocationController);
+    this.server.addRoutes(routes, someController);
     this.server.addErrorHandler();
 
     this.expressServer = await this.server.init(this.listen);

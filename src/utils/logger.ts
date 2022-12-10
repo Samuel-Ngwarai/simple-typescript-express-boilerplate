@@ -5,7 +5,6 @@ const version = process.env.npm_package_version;
 
 const logLevel: string = config.get('LOG_LEVEL');
 
-// TODO: Enable adding additional data arguments to logs
 const options: LoggerOptions = {
   exitOnError: false,
   level: logLevel,
