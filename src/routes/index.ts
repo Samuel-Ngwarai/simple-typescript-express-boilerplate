@@ -6,7 +6,7 @@ import { IRoute } from './routes-i';
 export class Routes implements IRoute {
   constructor() {}
 
-  public register(app: Express, vehicleGeolocationController: SomeController): void {
+  public register(app: Express, someController: SomeController): void {
     app.get('/', async (req: Request, res: Response) => {
       res.status(404).send('Uknown route called. Try "/simple" for example');
     });
@@ -32,7 +32,7 @@ export class Routes implements IRoute {
      *         description: Successfull Response
      */
     app.get('/simple',
-      vehicleGeolocationController.doSomethingSimple.bind(vehicleGeolocationController));
+      someController.doSomethingSimple.bind(someController));
 
     app.get('*',function (req: Request, res: Response) {
       res.status(404).send('Uknown route called. Try "/simple" for example');

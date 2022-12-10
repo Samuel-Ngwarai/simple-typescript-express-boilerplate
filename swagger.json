@@ -1,7 +1,7 @@
 {
   "swaggerDefinition": {
     "info": {
-      "title": "Vehicle Geolocation API",
+      "title": "Simmple Typescript Express Boilerplate",
       "description": "Retrieve Vehicles and their locations for given cities",
       "contact": {
         "name": "Samuel Ngwarai"
