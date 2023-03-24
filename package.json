@@ -55,8 +55,10 @@
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "test": "NODE_CONFIG_DIR=$(pwd)/src/config jest --coverage --verbose",
-    "test:watch": "jest --watch"
+    "test": "npm run test:unit && npm run test:int",
+    "test:unit": "NODE_CONFIG_DIR=$(pwd)/src/config jest --config=tests/jest.config.unit.json",
+    "test:int": "NODE_CONFIG_DIR=$(pwd)/src/config jest --config=tests/jest.config.integration.json",
+    "test:watch": "npm run test:unit -- --watch"
   },
   "author": "Samuel Ngwarai",
   "license": "Apache-2.0"

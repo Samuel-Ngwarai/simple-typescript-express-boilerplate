@@ -45,7 +45,7 @@ export class Server {
   }
 
   public addErrorHandler() {
-    this.server.use((err: any, req: Request, res: Response, next: NextFunction) => {
+    this.server.use((err: any, req: Request, res: Response, _: NextFunction) => {
       logger.error(err);
 
       const errorObject  = {
@@ -64,7 +64,6 @@ export class Server {
       const swaggerDocs = swaggerJsDoc(swaggerDocument);
       this.server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
       logger.info(`Server::addSwaggerFile, Swagger file running at 'http://localhost:${this.port}/api-docs'`);
-
     }
   }
 }

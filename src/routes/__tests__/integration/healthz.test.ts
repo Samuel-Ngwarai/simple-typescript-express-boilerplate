@@ -1,6 +1,6 @@
 import { Express } from 'express';
 import request from 'supertest';
-import App from '../../../src/main';
+import App from '../../../main';
 
 describe(__filename, () => {
   let app: App;
@@ -32,7 +32,7 @@ describe(__filename, () => {
       const res = await request(expressServer).get('/');
 
       expect(res.statusCode).toEqual(404);
-      expect(res.error.text).toEqual('Uknown route called. Try "/simple" for example');
+      expect(res.error.text).toEqual('Unknown route called. Try "/simple" for example');
     });
 
     it('/ random Routes should return error', async () => {
