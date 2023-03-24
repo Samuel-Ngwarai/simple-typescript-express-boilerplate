@@ -1,8 +1,7 @@
-
 import { Express } from 'express';
 import request from 'supertest';
 
-import App from '../../../src/main';
+import App from '../../../main';
 
 describe(__filename, () => {
   let app: App;

@@ -1,4 +1,4 @@
-import { MySimpleUsecase } from '../../../src/usecases/my-simple-usecase';
+import { MySimpleUsecase } from '../../my-simple-usecase';
 
 describe(__filename, () => {
   const simpleUsecasae = new MySimpleUsecase();

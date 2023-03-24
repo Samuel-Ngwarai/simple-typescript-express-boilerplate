@@ -8,7 +8,7 @@ export class Routes implements IRoute {
 
   public register(app: Express, someController: SomeController): void {
     app.get('/', async (req: Request, res: Response) => {
-      res.status(404).send('Uknown route called. Try "/simple" for example');
+      res.status(404).send('Unknown route called. Try "/simple" for example');
     });
 
     app.get('/readyz', async (req: Request, res: Response) => {
