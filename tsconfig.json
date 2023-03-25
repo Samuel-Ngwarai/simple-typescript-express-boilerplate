@@ -18,7 +18,11 @@
     "noImplicitThis": false,
     "strictNullChecks": false,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata", "jest"],
+    "lib": ["ES6"]
   },
   "include": [
     "src/**/*",

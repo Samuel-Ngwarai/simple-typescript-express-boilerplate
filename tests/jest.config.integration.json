@@ -1,5 +1,6 @@
 {
     "rootDir": "../",
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.ts"],
     "testMatch": [
         "**/__tests__/integration/**/*.test.ts"
     ],
@@ -20,7 +21,8 @@
       "src/**/*.ts",
       "!src/utils/logger.ts",
       "!src/**/__tests__/**",
-      "!src/config/**.ts"
+      "!src/config/**.ts",
+      "!src/containers/*.ts"
     ],
   "errorOnDeprecated": true,
   "snapshotFormat": {
