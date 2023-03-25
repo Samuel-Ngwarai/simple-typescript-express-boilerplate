@@ -8,7 +8,6 @@ import cors from 'cors';
 import { IRoute } from '../routes/routes-i';
 
 import { logger } from '../utils/logger';
-import { SomeController } from '../controllers/some-controller';
 
 export class Server {
   private server: Express;
@@ -40,8 +39,8 @@ export class Server {
     this.server.use(cors());
   }
 
-  public addRoutes(routes: IRoute, someController: SomeController): void {
-    routes.register(this.server, someController);
+  public addRoutes(routes: IRoute): void {
+    routes.register(this.server);
   }
 
   public addErrorHandler() {

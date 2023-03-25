@@ -1,19 +1,21 @@
+import { injectable, inject } from 'inversify';
 import { Request, Response, NextFunction } from 'express';
 
 import { logger } from '../utils/logger';
-import { MySimpleUsecase } from '../usecases/my-simple-usecase';
+import { TYPES } from '../containers/types';
+import { MySimpleUsecaseInterface } from '../usecases/interfaces/Imy-simple-usecase';
 
+@injectable()
 export class SomeController {
-  private mySimpleUsecase = new MySimpleUsecase();
+  @inject(TYPES.MySimpleUsecaseInterface) private _mySimpleUsecase: MySimpleUsecaseInterface;
+
   private loggerPrefix = 'SomeController';
+  constructor() {}
 
-  constructor() {
-  }
-
-  public async doSomethingSimple(req: Request, res: Response, next: NextFunction): Promise<void> {
+  public async doSomethingSimple(_: Request, res: Response, next: NextFunction): Promise<void> {
     logger.info(`${this.loggerPrefix}::doSomethingSimple`);
     try {
-      const response = await this.mySimpleUsecase.execute();
+      const response = await this._mySimpleUsecase.execute();
       res.json(response);
     } catch (error) {
       logger.error(`${this.loggerPrefix}::doSomethingSimple, error occurred error: ${error}`);

@@ -3,9 +3,9 @@ import { Express } from 'express';
 
 import { Server } from './server';
 import { Routes } from './routes';
-import { SomeController } from './controllers/some-controller';
 
 import { logger } from './utils/logger';
+import { initializeAppContainer } from './containers/inversify.config';
 
 export default class App {
   public expressServer: Express;
@@ -16,13 +16,12 @@ export default class App {
   public async init(): Promise<void> {
     this.server = new Server();
 
+    await initializeAppContainer();
     const routes = new Routes();
-
-    const someController = new SomeController();
 
     this.server.addExtensions();
     this.server.addSwaggerFile();
-    this.server.addRoutes(routes, someController);
+    this.server.addRoutes(routes);
     this.server.addErrorHandler();
 
     this.expressServer = await this.server.init(this.listen);
